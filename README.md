@@ -1,6 +1,7 @@
 # WeatherApp
 
 ## Table of Contents
+- Group members
 - Introduction
 - Features
 - Technologies Used
@@ -9,6 +10,13 @@
 - Contributing
 - License
 - Contact
+
+## Group Members
+- Priya Thakur
+- Tikeshwari Sahu
+- Aanjali Kumari
+- Mayuri Tupe
+- Naina Bhagat
 
 ## Introduction
 WeatherApp is a web application that allows users to search for current weather conditions and a 5-day weather forecast for any city. The app leverages the OpenWeatherMap API to fetch weather data and presents it in a user-friendly interface.
@@ -42,24 +50,6 @@ To set up this project locally, follow these steps:
 1. Open the application in your web browser.
 2. Enter the name of a city in the search bar.
 3. Click the "Search" button to fetch and display the current weather and forecast.
-
-## Contributing
-Contributions are welcome! Please follow these steps to contribute:
-
-1. Fork the repository.
-2. Create a new branch:
-    ```bash
-    git checkout -b feature-branch
-    ```
-3. Make your changes and commit them:
-    ```bash
-    git commit -m 'Add new feature'
-    ```
-4. Push to the branch:
-    ```bash
-    git push origin feature-branch
-    ```
-5. Create a new Pull Request.
 
 ## License
 This project is licensed under the MIT License. See the Licence file for details.
