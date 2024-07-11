@@ -62,7 +62,7 @@ Contributions are welcome! Please follow these steps to contribute:
 5. Create a new Pull Request.
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the Licence file for details.
 
 ## Contact
 For any questions or feedback, please contact:
