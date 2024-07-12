@@ -1,4 +1,4 @@
-# Weather-Web-Page
+# Weather-App
 
 ## Table of Contents
 - Group members
