@@ -8,9 +8,15 @@ document.querySelector('button').addEventListener('click', () => {
     }
 });
 
+const apiKey = '771b6db8d8b269a8214db9793d936567';
+const baseUrl = 'https://api.openweathermap.org/data/2.5';
+
+function constructUrl(endpoint, city) {
+    return `${baseUrl}/${endpoint}?q=${city}&appid=${apiKey}&units=metric`;
+}
+
 async function fetchWeather(city) {
-    const apiKey = '771b6db8d8b269a8214db9793d936567';
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    const url = constructUrl('weather', city);
 
     try {
         const response = await fetch(url);
@@ -26,8 +32,7 @@ async function fetchWeather(city) {
 }
 
 async function fetchForecast(city) {
-    const apiKey = '771b6db8d8b269a8214db9793d936567';
-    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+    const url = constructUrl('forecast', city);
 
     try {
         const response = await fetch(url);
@@ -43,23 +48,19 @@ async function fetchForecast(city) {
 }
 
 function displayWeather(data) {
+    const description = data.weather[0].description;
+
     document.getElementById('cityName').innerText = data.name;
-    document.getElementById('temp').innerText = `${data.main.temp}°C`;
     document.getElementById('icon').innerHTML = `<img src="http://openweathermap.org/img/wn/${data.weather[0].icon}.png" alt="Weather icon">`;
-    document.getElementById('today').style.backgroundColor = "rgba(247, 243, 243, 0.265)"
-}
+    document.getElementById('temp').innerText = `${data.main.temp}°C`;
+    document.getElementById('today').style.backgroundColor = "rgba(247, 243, 243, 0.265)";
+  
+    }   
 
 function displayForecast(data) {
     const forecastContainer = document.getElementById('forecast');
     forecastContainer.innerHTML = ''; // Clear previous forecast
 
-
-    // Display forecast header
-    const forecastHead = document.getElementById('forecasthead');
-    // forecastHead.innerText = '5-Day Forecast';
-    // forecastContainer.appendChild(forecastHead);
-
-    // Process the forecast data (filter by midday data for clarity)
     const filteredData = data.list.filter(item => item.dt_txt.includes("12:00:00"));
     filteredData.forEach((forecast, index) => {
         const dayDiv = document.createElement('div');
@@ -71,8 +72,8 @@ function displayForecast(data) {
         const weatherDescription = forecast.weather[0].description;
 
         dayDiv.innerHTML = `<h3>${date}</h3>${icon}<p>${temp}</p><p>${weatherDescription}</p>`;
-        dayDiv.style.backgroundColor = "rgba(247, 243, 243, 0.265)"
-        dayDiv.style.borderRadius = "8px"
+        dayDiv.style.backgroundColor = "rgba(247, 243, 243, 0.265)";
+        dayDiv.style.borderRadius = "8px";
         forecastContainer.appendChild(dayDiv);
     });
 }
